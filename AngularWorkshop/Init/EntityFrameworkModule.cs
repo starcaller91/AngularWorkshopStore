@@ -24,6 +24,7 @@ namespace AngularWorkshop.Init
                         type.Name.EndsWith("Repository")
                 ).AsImplementedInterfaces().InstancePerLifetimeScope();
 
+            builder.RegisterType<DbContextUnitOfWork>().AsImplementedInterfaces().InstancePerLifetimeScope();
 
             builder.RegisterType<StoreContext>()
                 .WithParameter("isMigration", false)

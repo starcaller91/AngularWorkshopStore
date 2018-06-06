@@ -27,10 +27,17 @@ namespace Migration.Migrations
             };
 
             articleList.ForEach(x => context.Set<Article>().Add(x));
-            //  This method will be called after migrating to the latest version.
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data.
+            var customerList = new List<Customer>
+            {
+                new Customer{Name = "Bolji zivot", Discount = 10.5, MininalAmmountForDiscount = 5000},
+                new Customer{Name = "Sutra ce biti bolje", Discount = 3.5, MininalAmmountForDiscount = 2000},
+                new Customer{Name = "Otiso si, ostali su dugovi", Discount = 20, MininalAmmountForDiscount = 5000},
+                new Customer{Name = "Verujte nam, njemu je sad bolje", Discount = 17.5, MininalAmmountForDiscount = 8000},
+            };
+
+            customerList.ForEach(x => context.Set<Customer>().Add(x));
+
         }
     }
 }
